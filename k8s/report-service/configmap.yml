@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: report-service-config
+  namespace: lissa-fit
+data:
+  DB_URL: "jdbc:postgresql://wa-postgres:5432/wa_db?currentSchema=wa_report_service_db"
+  DB_URL_BASE: "jdbc:postgresql://wa-postgres:5432/wa_db"
+  DB_SCHEMA: "wa_report_service_db"
+  REDIS_HOST: "wa-redis"
+  REDIS_PORT: "6379"
+  REDIS_TIMEOUT: "5s"
+  STORAGE_SERVICE_BASE_URL: "http://storage-service"
+  STORAGE_SERVICE_PATH: "/v1/internal/users/{userId}/dashboard"
+  STORAGE_SERVICE_TIMEOUT: "5000"
+  AWS_S3_REGION: "us-east-1"
+  AWS_S3_ENDPOINT_INTERNAL: "http://minio:9000"
+  AWS_S3_ENDPOINT_PUBLIC: "http://localhost:9000"
+  AWS_S3_PATH_STYLE_ACCESS: "true"
+  AWS_S3_BUCKET_NAME: "health-reports"
+  AWS_S3_PRESIGNED_URL_EXPIRATION: "3600"
+  AWS_S3_REPORT_PREFIX: "report"
+  REPORT_DELETION_CRON: "0 0 1 * * SUN"
